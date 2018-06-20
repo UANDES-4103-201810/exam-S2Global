@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  crust_id: one
+  recipe_id: one
+
+two:
+  crust_id: two
+  recipe_id: two
