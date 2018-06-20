@@ -6,31 +6,31 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-ingredients = Ingredient.create([{ name: 'Pineapple' }, { name: 'Tomato' }, { name: 'Pepperoni' },
+ingredients = Ingredient.create!([{ name: 'Pineapple' }, { name: 'Tomato' }, { name: 'Pepperoni' },
                                  { name: 'Olives' }, { name: 'Onion' }, { name: 'Artichokes' }, { name: 'Mushrooms' },
                                  { name: 'Ham' }, { name: 'Shrimp' }, { name: 'Mozzarella' }])
 
-crusts = Crust.create([{ name: 'Regular', price: 500 }, { name: 'Thin', price: 350 } ])
+crusts = Crust.create!([{ name: 'Regular', price: 500 }, { name: 'Thin', price: 350 } ])
 
-recipes = Recipe.create([{ name: 'Hawaiian', price: 2500 }, { name: 'Veggie', price: 2000 },
+recipes = Recipe.create!([{ name: 'Hawaiian', price: 2500 }, { name: 'Veggie', price: 2000 },
                         { name: 'American', price: 3000 }, { name: 'Italian', price: 2400 },
                         { name: 'Cheese', price: 1300 }, { name: 'Zookeeper', price: 2700 }])
 
-recipeIngredients = RecipeIngredient.create([{ recipe_id_id: recipes[1].id, ingredient_id_id: ingredients[1].id },
-                                             { recipe_id_id: recipes[1], ingredient_id_id: ingredients[8] },
-                                             { recipe_id_id: recipes[1], ingredient_id_id: ingredients[10] },
-                                             { recipe_id_id: recipes[2], ingredient_id_id: ingredients[2] },
-                                             { recipe_id_id: recipes[2], ingredient_id_id: ingredients[4] },
-                                             { recipe_id_id: recipes[2], ingredient_id_id: ingredients[5] },
-                                             { recipe_id_id: recipes[2], ingredient_id_id: ingredients[7] },
-                                             { recipe_id_id: recipes[3], ingredient_id_id: ingredients[3] },
-                                             { recipe_id_id: recipes[3], ingredient_id_id: ingredients[3] },
-                                             { recipe_id_id: recipes[3], ingredient_id_id: ingredients[10] },
-                                             { recipe_id_id: recipes[4], ingredient_id_id: ingredients[2] },
-                                             { recipe_id_id: recipes[4], ingredient_id_id: ingredients[8] },
-                                             { recipe_id_id: recipes[4], ingredient_id_id: ingredients[10] },
-                                             { recipe_id_id: recipes[5], ingredient_id_id: ingredients[10] },
-                                             { recipe_id_id: recipes[5], ingredient_id_id: ingredients[10] },
-                                             { recipe_id_id: recipes[6], ingredient_id_id: ingredients[3] },
-                                             { recipe_id_id: recipes[6], ingredient_id_id: ingredients[8] },
-                                             { recipe_id_id: recipes[6], ingredient_id_id: ingredients[9] }])
+recipeIngredients = RecipeIngredient.create!([{ recipe_id: 1, ingredient_id: 1 },
+                                             { recipe_id: 1, ingredient_id: 8 },
+                                             { recipe_id: 1, ingredient_id: 1 },
+                                             { recipe_id: 2, ingredient_id: 2 },
+                                             { recipe_id: 2, ingredient_id: 4 },
+                                             { recipe_id: 2, ingredient_id: 5 },
+                                             { recipe_id: 2, ingredient_id: 7 },
+                                             { recipe_id: 3, ingredient_id: 3 },
+                                             { recipe_id: 3, ingredient_id: 3 },
+                                             { recipe_id: 3, ingredient_id: 10 },
+                                             { recipe_id: 4, ingredient_id: 2 },
+                                             { recipe_id: 4, ingredient_id: 8 },
+                                             { recipe_id: 4, ingredient_id: 10 },
+                                             { recipe_id: 5, ingredient_id: 10 },
+                                             { recipe_id: 5, ingredient_id: 10 },
+                                             { recipe_id: 6, ingredient_id: 3 },
+                                             { recipe_id: 6, ingredient_id: 8 },
+                                             { recipe_id: 6, ingredient_id: 9 }])

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_20_200911) do
+ActiveRecord::Schema.define(version: 2018_06_20_225001) do
 
   create_table "crusts", force: :cascade do |t|
     t.string "name"
@@ -36,10 +36,26 @@ ActiveRecord::Schema.define(version: 2018_06_20_200911) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
+  create_table "deliveries", force: :cascade do |t|
+    t.string "address_1"
+    t.string "address_2"
+    t.integer "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "pay"
+    t.integer "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
   create_table "pizzas", force: :cascade do |t|
@@ -52,12 +68,12 @@ ActiveRecord::Schema.define(version: 2018_06_20_200911) do
   end
 
   create_table "recipe_ingredients", force: :cascade do |t|
-    t.integer "recipe_id_id"
-    t.integer "ingredient_id_id"
+    t.integer "recipe_id"
+    t.integer "ingredient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["ingredient_id_id"], name: "index_recipe_ingredients_on_ingredient_id_id"
-    t.index ["recipe_id_id"], name: "index_recipe_ingredients_on_recipe_id_id"
+    t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
+    t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
   end
 
   create_table "recipes", force: :cascade do |t|
