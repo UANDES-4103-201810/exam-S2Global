@@ -8,33 +8,30 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <nav class="navbar navbar-default" >
-    <div class="container-fluid">
-      <ul class="nav navbar-nav">
-        <p>Joe's Pizza</p>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in? %>
-          <li><%= link_to(current_user.username, '/users/' + current_user.id.to_s) %></li>
-          <% if current_user.is_admin %>
-            <li><a href="/users">Users</a></li>
-            <li><a href="/categories">Categories</a></li>
+  <header>
+    <nav class="navbar navbar-default" >
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li><%= link_to("Joe's Pizza", '/' ) %></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to('Cart', '/') %></li>
+          <% if customer_signed_in? %>
+            <li><a <%= link_to('Logout', destroy_customer_session_path, method: :delete) %></a></li>
+          <% else %>
+            <li><%= link_to('Login', new_customer_session_path) %></li>
           <% end %>
-          <li><a <%= link_to('Logout', destroy_user_session_path, method: :delete) %></a></li>
-        <% else %>
-          <li><%= link_to('Login', new_user_session_path) %></li>
-        <% end %>
-        <li><%= link_to('Wishlist', '/users/' + current_user.id.to_s + '/wishes') %></li>
-      </ul>
-    </div>
-  </nav>
+        </ul>
+      </div>
+    </nav>
+  </header>
   <body>
     <%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
   </body>
 
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 
 
 </html>

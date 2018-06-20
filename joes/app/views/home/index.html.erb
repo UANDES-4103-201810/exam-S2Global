@@ -1,2 +1,55 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="jumbotron text-center">
+  <h1>Joe's Pizza</h1>
+  <p>"Best pizzas on the web!"</p>
+</div>
+
+<h2>Menu</h2>
+<div class="flex-container">
+  <div>
+    <div><%= @recipes[1].name %></div>
+    <div>Price: $<%= @recipes[1].price %></div>
+    <%= link_to 'Buy', @recipes[1] %>
+  </div>
+  <div>
+    <div><%= @recipes[2].name %></div>
+    <div>Price: $<%= @recipes[2].price %></div>
+    <%= link_to 'Buy', @recipes[2] %>
+  </div>
+  <div>
+    <div><%= @recipes[3].name %></div>
+    <div>Price: $<%= @recipes[3].price %></div>
+    <%= link_to 'Buy', @recipes[3] %>
+  </div>
+  <div>
+    <div><%= @recipes[4].name %></div>
+    <div>Price: $<%= @recipes[4].price %></div>
+    <%= link_to 'Buy', @recipes[4] %>
+  </div>
+  <div>
+    <div><%= @recipes[5].name %></div>
+    <div>Price: $<%= @recipes[5].price %></div>
+    <%= link_to 'Buy', @recipes[5] %>
+  </div>
+  <div>
+    <div><%= @recipes[6].name %></div>
+    <div>Price: $<%= @recipes[7].price %></div>
+    <%= link_to 'Buy', @recipes[6] %>
+  </div>
+</div>
+
+<style>
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: antiquewhite;
+  }
+
+  .flex-container > div {
+    background-color: white;
+    width: 200px;
+    margin: 20px;
+    text-align: center;
+    line-height: 25px;
+    font-size: 15px;
+  }
+</style>

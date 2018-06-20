@@ -11,4 +11,14 @@ class RecipeControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get show" do
+    get recipe_show_url
+    assert_response :success
+  end
+
+  test "should get index" do
+    get recipe_index_url
+    assert_response :success
+  end
+
 end
